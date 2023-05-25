@@ -1,5 +1,5 @@
 class Car:
-    wheels=5
+    wheels=4
     def __init__(self,make,model,color,speed,year):
         self.make=make
         self.speed=speed
