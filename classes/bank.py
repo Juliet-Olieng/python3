@@ -12,20 +12,20 @@ class Bank:
     def check_balance(self):
         return self.amount
 
-    def deposit(self, amount, narration):
+    def deposit(self, amount):
         self.amount += amount
         self.deposits.append({
             "amount": amount,
             "narration": "deposit"
         })
 
-    def withdrawal(self, amount, narration):
+    def withdrawal(self, amount):
         if self.amount < amount:
             raise ValueError("Insufficient balance")
         self.amount -= amount
         self.withdrawals.append({
             "amount": amount,
-            "narration": narration
+            "narration":"withdrawal"
         })
 
     def print_statement(self):
@@ -56,7 +56,7 @@ class Bank:
         return amount
 
     def transfer(self, amount, other_account):
-        if amount > self.amount:
+        if amount <= self.amount:
             raise ValueError("Insufficient balance")
         self.amount -= amount
         other_account.amount += amount
